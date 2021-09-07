@@ -1,4 +1,3 @@
-from os import name
 from flask import Flask, render_template, request, jsonify
 import sqlite3 as sql
 from person import Person
@@ -18,7 +17,7 @@ def home():
 # Search
 
 @app.route("/first=<name>")
-def search(name):
+def sfname(name):
    conn = sql.connect("People.db")
    c = conn.cursor()
    c.execute("SELECT * FROM Person WHERE first= :first", {'first': name})
@@ -27,7 +26,7 @@ def search(name):
    return jsonify(stuff)
 
 @app.route("/last=<name>")
-def search(name):
+def slname(name):
    conn = sql.connect("People.db")
    c = conn.cursor()
    c.execute("SELECT * FROM Person WHERE last= :last", {'last': name})
@@ -36,7 +35,7 @@ def search(name):
    return jsonify(stuff)
    
 @app.route("/age=<age>")
-def search(age):
+def sage(age):
    conn = sql.connect("People.db")
    c = conn.cursor()
    c.execute("SELECT * FROM Person WHERE age= :age", {'age': age})
@@ -45,7 +44,7 @@ def search(age):
    return jsonify(stuff)
 
 @app.route("/id=<id>")
-def search(id):
+def sid(id):
    conn = sql.connect("People.db")
    c = conn.cursor()
    c.execute("SELECT * FROM Person WHERE id= :id", {'id': id})
