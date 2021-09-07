@@ -52,4 +52,6 @@ def search(id):
    stuff = c.fetchall()
 
    return jsonify(stuff)
+
+
 app.run(host='0.0.0.0', port=8080)
